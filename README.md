@@ -69,8 +69,8 @@ email transports, offer letters, notifications, and integrations.
 ## Installation
 
 ```bash
-git clone https://github.com/<your-org>/eloom-lms.git
-cd eloom-lms
+git clone https://github.com/eloompty/Eloom-LMS-International.git
+cd Eloom-LMS-International
 
 composer install
 npm install
