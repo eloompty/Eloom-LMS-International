@@ -1,0 +1,13 @@
+{
+    "name": "AgentBranchUser",
+    "alias": "agentbranchuser",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\AgentBranchUser\\Providers\\AgentBranchUserServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

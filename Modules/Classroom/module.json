@@ -1,0 +1,13 @@
+{
+    "name": "Classroom",
+    "alias": "classroom",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Classroom\\Providers\\ClassroomServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

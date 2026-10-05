@@ -1,0 +1,13 @@
+{
+    "name": "OnlineClass",
+    "alias": "onlineclass",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\OnlineClass\\Providers\\OnlineClassServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

@@ -1,0 +1,13 @@
+{
+    "name": "OfferStatus",
+    "alias": "offerstatus",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\OfferStatus\\Providers\\OfferStatusServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

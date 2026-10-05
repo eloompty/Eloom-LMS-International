@@ -1,0 +1,13 @@
+{
+    "name": "Intake",
+    "alias": "intake",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Intake\\Providers\\IntakeServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

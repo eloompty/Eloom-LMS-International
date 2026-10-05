@@ -1,0 +1,53 @@
+name: Feature request
+description: Suggest a capability or improvement
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: >
+        Describe the situation you run into, not the solution you have in mind. Who is
+        affected — students, trainers, admissions staff, agents, finance?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Which area does this affect?
+      options:
+        - Admissions and enrolment
+        - Academic delivery
+        - Assessment and progress
+        - Finance
+        - Engagement and communication
+        - Reporting
+        - Platform / settings / permissions
+        - REST API
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Including any workaround you currently use.
+
+  - type: checkboxes
+    id: regulatory
+    attributes:
+      label: Scope check
+      options:
+        - label: >
+            This is generally useful, not specific to one provider's policies, branding, or
+            regulatory jurisdiction. Provider-specific content belongs in settings rather than
+            in the codebase.

@@ -1,0 +1,11 @@
+{
+    "name": "Alumni",
+    "alias": "alumni",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Alumni\\Providers\\AlumniServiceProvider"
+    ],
+    "files": []
+}

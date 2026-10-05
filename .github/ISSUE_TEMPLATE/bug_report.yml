@@ -1,0 +1,79 @@
+name: Bug report
+description: Something is broken or behaves unexpectedly
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a report.
+
+        **Do not use this form for security vulnerabilities.** Please follow
+        [SECURITY.md](../blob/main/SECURITY.md) instead so the issue can be handled privately.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you expect, and what happened instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Include the portal and the exact page or endpoint.
+      placeholder: |
+        1. Sign in to /admin as a super admin
+        2. Go to Students → Offer Letters → View
+        3. ...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: portal
+    attributes:
+      label: Which portal?
+      options:
+        - Administration (/admin)
+        - Student (/student)
+        - Trainer (/trainer)
+        - Agent (/agent)
+        - Agent branch user (/branch-user)
+        - REST API (/api/v1)
+        - Not portal specific
+    validations:
+      required: true
+
+  - type: input
+    id: php-version
+    attributes:
+      label: PHP version
+      placeholder: "8.3.14"
+    validations:
+      required: true
+
+  - type: input
+    id: db
+    attributes:
+      label: Database
+      placeholder: "MySQL 8.0.36"
+    validations:
+      required: true
+
+  - type: input
+    id: commit
+    attributes:
+      label: Version / commit
+      description: Output of `git rev-parse --short HEAD`
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: |
+        From `storage/logs/laravel.log`. **Redact credentials, tokens, and student personal
+        data before pasting.**
+      render: shell

@@ -1,0 +1,51 @@
+Eloom LMS
+Copyright (c) 2026 Eloom
+
+This product includes third-party software. The Eloom LMS source code is
+licensed under the MIT License (see LICENSE). The components listed below are
+distributed under their own licenses, which are compatible with, but separate
+from, that grant.
+
+--------------------------------------------------------------------------------
+
+Laravel Framework
+  https://laravel.com — MIT License
+  Copyright (c) Taylor Otwell
+  This project is built on the Laravel skeleton application.
+
+AdminLTE v3.2.0
+  https://adminlte.io — MIT License
+  Copyright (c) 2014-2021 ColorlibHQ
+  Vendored under public/themes/AdminLTE.
+
+Front-end plugins bundled with AdminLTE
+  Vendored under public/themes/AdminLTE/plugins. Each retains the copyright
+  and license of its respective author; where a license file is distributed
+  with the plugin it has been preserved in place. Includes, among others:
+
+    Bootstrap ............... MIT — https://getbootstrap.com
+    jQuery .................. MIT — https://jquery.com
+    jQuery UI ............... MIT — public/themes/AdminLTE/plugins/jquery-ui/LICENSE.txt
+    jQuery Mousewheel ....... MIT — public/themes/AdminLTE/plugins/jquery-mousewheel/LICENSE.txt
+    FullCalendar ............ MIT — public/themes/AdminLTE/plugins/fullcalendar/LICENSE.txt
+    iCheck Bootstrap ........ MIT — public/themes/AdminLTE/plugins/icheck-bootstrap/LICENSE
+    Ion.RangeSlider ......... MIT — public/themes/AdminLTE/plugins/ion-rangeslider/License.md
+    Raphaël ................. MIT — public/themes/AdminLTE/plugins/raphael/license.txt
+    DataTables .............. MIT — https://datatables.net
+    Chart.js ................ MIT — https://www.chartjs.org
+    Select2 ................. MIT — https://select2.org
+    Moment.js ............... MIT — https://momentjs.com
+    SweetAlert2 ............. MIT — https://sweetalert2.github.io
+    Font Awesome ............ CC BY 4.0 (icons), SIL OFL 1.1 (fonts),
+                              MIT (code) — https://fontawesome.com
+    pdfmake ................. MIT — https://pdfmake.github.io
+    jQVMap .................. MIT — https://www.10bestdesign.com/jqvmap/
+
+Composer and npm dependencies
+  Declared in composer.json and package.json and installed at build time. They
+  are not vendored in this repository; each is governed by its own license.
+
+--------------------------------------------------------------------------------
+
+Firebase Cloud Messaging is loaded at runtime from Google's CDN and is not
+redistributed here. Use of Firebase is subject to Google's terms of service.

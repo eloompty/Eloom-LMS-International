@@ -1,0 +1,1197 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "LMS API",
+        "description": "Learning Management System API",
+        "contact": {
+            "email": "support@example.com"
+        },
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "/api/v1/",
+            "description": "LMS API"
+        }
+    ],
+    "paths": {
+        "/intake/course": {
+            "post": {
+                "tags": [
+                    "Intakes"
+                ],
+                "summary": "Add missing intake unit",
+                "description": "Add missing intake unit",
+                "operationId": "intakeCourse",
+                "parameters": [
+                    {
+                        "name": "intake_course_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "unit_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    },
+                    "401": {
+                        "description": "Unathorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/student/login": {
+            "post": {
+                "tags": [
+                    "Students"
+                ],
+                "summary": "Student Login",
+                "description": "Student Login",
+                "operationId": "studentLogin",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "student@example.com"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "12345678"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    },
+                    "401": {
+                        "description": "Unathorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/student/device/register": {
+            "post": {
+                "tags": [
+                    "Students"
+                ],
+                "summary": "Student Device Register",
+                "description": "Student Device Register",
+                "operationId": "studentDeviceRegister",
+                "parameters": [
+                    {
+                        "name": "device_type",
+                        "in": "query",
+                        "description": "Android / iOS",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "Android"
+                        }
+                    },
+                    {
+                        "name": "device_token",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "dHY0KPMemkxGu8abvbXzXN:APA91bHOuUXVMjPDWUzABoWYLewcN5DZR2kLZcGUNSEuGMd4CpwCZqN1hJ7Cr-rCWPTrgzNFu_vcy0fIQySuBhr5z5i_EmZ4buaOVQ3sNqGi7Ym7ifBGcS5OgduFxoQ28kV1ab-JPBZf"
+                        }
+                    },
+                    {
+                        "name": "device_name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "Samsung S21 Ultra 5G"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    },
+                    "401": {
+                        "description": "Unathorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": [
+                            "*"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/student/logout": {
+            "post": {
+                "tags": [
+                    "Students"
+                ],
+                "summary": "Student Logout",
+                "description": "Student Logout",
+                "operationId": "studentLogout",
+                "parameters": [
+                    {
+                        "name": "device_type",
+                        "in": "query",
+                        "description": "Android / iOS",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "Android"
+                        }
+                    },
+                    {
+                        "name": "device_token",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "dHY0KPMemkxGu8abvbXzXN:APA91bHOuUXVMjPDWUzABoWYLewcN5DZR2kLZcGUNSEuGMd4CpwCZqN1hJ7Cr-rCWPTrgzNFu_vcy0fIQySuBhr5z5i_EmZ4buaOVQ3sNqGi7Ym7ifBGcS5OgduFxoQ28kV1ab-JPBZf"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    },
+                    "401": {
+                        "description": "Unathorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": [
+                            "*"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/student/profile": {
+            "get": {
+                "tags": [
+                    "Students"
+                ],
+                "summary": "Student Profile",
+                "description": "Student Profile",
+                "operationId": "studentProfile",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    },
+                    "401": {
+                        "description": "Unathorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": [
+                            "*"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/student/update/password": {
+            "post": {
+                "tags": [
+                    "Students"
+                ],
+                "summary": "Update Student Password",
+                "description": "Update Student Password",
+                "operationId": "studentUpdatePassword",
+                "parameters": [
+                    {
+                        "name": "current_password",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "new_password",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    },
+                    "401": {
+                        "description": "Unathorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": [
+                            "*"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/student/dashboard": {
+            "get": {
+                "tags": [
+                    "Students"
+                ],
+                "summary": "Student Dashboard",
+                "description": "Student Dashboard",
+                "operationId": "studentDashboard",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    },
+                    "401": {
+                        "description": "Unathorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": [
+                            "*"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/student/course/{id}": {
+            "get": {
+                "tags": [
+                    "Students"
+                ],
+                "summary": "Student Unit List By Course",
+                "description": "Student Unit List By Course",
+                "operationId": "studentCourseUnit",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of course (intake_course_id)",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    },
+                    "401": {
+                        "description": "Unathorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": [
+                            "*"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/student/unit/time/{id}": {
+            "get": {
+                "tags": [
+                    "Students"
+                ],
+                "summary": "Student Unit Time Table",
+                "description": "Student Unit Time Table",
+                "operationId": "studentUnitTimeTable",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Intake Unit Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    },
+                    "401": {
+                        "description": "Unathorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": [
+                            "*"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/student/trainer/{id}": {
+            "get": {
+                "tags": [
+                    "Students"
+                ],
+                "summary": "Student Assigned Trainer",
+                "description": "Student Assigned Trainer",
+                "operationId": "studentAssignedTrainer",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Intake Unit Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    },
+                    "401": {
+                        "description": "Unathorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": [
+                            "*"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/student/resource/{id}": {
+            "get": {
+                "tags": [
+                    "Students"
+                ],
+                "summary": "Student Resources",
+                "description": "Student Resources",
+                "operationId": "studentResources",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Intake Unit Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    },
+                    "401": {
+                        "description": "Unathorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": [
+                            "*"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/student/assignment/{id}": {
+            "get": {
+                "tags": [
+                    "Students"
+                ],
+                "summary": "Student Assignments",
+                "description": "Student Assignments",
+                "operationId": "studentAssignment",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Intake Unit Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    },
+                    "401": {
+                        "description": "Unathorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": [
+                            "*"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/student/assignment/detail/{id}": {
+            "get": {
+                "tags": [
+                    "Students"
+                ],
+                "summary": "Student Assignment Detail",
+                "description": "Student Assignment Detail",
+                "operationId": "studentAssignmentDetail",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Assignment Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    },
+                    "401": {
+                        "description": "Unathorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": [
+                            "*"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/student/assignment/submission/{id}": {
+            "get": {
+                "tags": [
+                    "Students"
+                ],
+                "summary": "Student Assignment Submissions",
+                "description": "Student Assignment Submissions",
+                "operationId": "studentAssignmentSubmission",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Assignment Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    },
+                    "401": {
+                        "description": "Unathorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": [
+                            "*"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/student/assignment/submission/detail/{id}": {
+            "get": {
+                "tags": [
+                    "Students"
+                ],
+                "summary": "Student Assignment Submission Detail",
+                "description": "Student Assignment Submission Detail",
+                "operationId": "studentAssignmentSubmissionDetail",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Submission Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    },
+                    "401": {
+                        "description": "Unathorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": [
+                            "*"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/student/notification": {
+            "get": {
+                "tags": [
+                    "Students"
+                ],
+                "summary": "Student Notifications",
+                "description": "Student Notifications",
+                "operationId": "studentNotification",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    },
+                    "401": {
+                        "description": "Unathorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": [
+                            "*"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/student/onlineclass/{id}": {
+            "get": {
+                "tags": [
+                    "Students"
+                ],
+                "summary": "Student Online Classes",
+                "description": "Student Online Classes",
+                "operationId": "studentOnlineClass",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Intake Unit Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    },
+                    "401": {
+                        "description": "Unathorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": [
+                            "*"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/student/onlineclass/group/all": {
+            "get": {
+                "tags": [
+                    "Students"
+                ],
+                "summary": "Student Group Online Classes",
+                "description": "Student Group Online Classes",
+                "operationId": "studentGroupOnlineClass",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    },
+                    "401": {
+                        "description": "Unathorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": [
+                            "*"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/student/onlineclass/group/class/{id}": {
+            "get": {
+                "tags": [
+                    "Students"
+                ],
+                "summary": "Student Online Class Zoom",
+                "description": "Student Online Class Zoom",
+                "operationId": "studentGroupOnlineClassById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Group Class Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    },
+                    "401": {
+                        "description": "Unathorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": [
+                            "*"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/student/onlineclass/recording/{id}": {
+            "get": {
+                "tags": [
+                    "Students"
+                ],
+                "summary": "Student Online Class Recording",
+                "description": "Student Online Class Recording",
+                "operationId": "studentOnlineClassRecording",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Online Class Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    },
+                    "401": {
+                        "description": "Unathorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": [
+                            "*"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/student/assignment/due/submission": {
+            "get": {
+                "tags": [
+                    "Students"
+                ],
+                "summary": "Student Due Assignment",
+                "description": "Student Due Assignment",
+                "operationId": "studentAssignmentDue",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    },
+                    "401": {
+                        "description": "Unathorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": [
+                            "*"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/student/attendance/{id}": {
+            "get": {
+                "tags": [
+                    "Students"
+                ],
+                "summary": "Student Attendance",
+                "description": "Student Attendance",
+                "operationId": "studentAttendance",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id from intake unit",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    },
+                    "401": {
+                        "description": "Unathorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": [
+                            "*"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/student/fee/{id}": {
+            "get": {
+                "tags": [
+                    "Students"
+                ],
+                "summary": "Student Fee Details",
+                "description": "Student Fee Details",
+                "operationId": "studentFee Details",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of course (intake_course_id)",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    },
+                    "401": {
+                        "description": "Unathorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": [
+                            "*"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "passport": {
+                "type": "http",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Students",
+            "description": "API Endpoints of Students"
+        },
+        {
+            "name": "Intakes",
+            "description": "API Endpoints of Intakes"
+        }
+    ]
+}

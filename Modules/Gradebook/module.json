@@ -1,0 +1,11 @@
+{
+    "name": "Gradebook",
+    "alias": "gradebook",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Gradebook\\Providers\\GradebookServiceProvider"
+    ],
+    "files": []
+}

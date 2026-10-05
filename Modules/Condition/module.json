@@ -1,0 +1,13 @@
+{
+    "name": "Condition",
+    "alias": "condition",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Condition\\Providers\\ConditionServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

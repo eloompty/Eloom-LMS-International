@@ -1,0 +1,13 @@
+{
+    "name": "Template",
+    "alias": "template",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Template\\Providers\\TemplateServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

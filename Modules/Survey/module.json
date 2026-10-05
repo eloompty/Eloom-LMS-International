@@ -1,0 +1,11 @@
+{
+    "name": "Survey",
+    "alias": "survey",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Survey\\Providers\\SurveyServiceProvider"
+    ],
+    "files": []
+}
